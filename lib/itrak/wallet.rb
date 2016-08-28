@@ -3,11 +3,13 @@ module ITrak
     include Persistable
 
     def initialize
-      store(WALLET_STORE)
+      store WALLET_STORE
     end
 
     def add(income)
       data << income
+      data.sort!
+      self
     end
 
     def initial_data

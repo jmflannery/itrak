@@ -20,8 +20,5 @@ OptionParser.new do |opts|
 end.parse!
 
 income = Income.new(inc[:name], inc[:amount], inc[:date])
-
-p wallet
 wallet.add(income)
 wallet.save
-p wallet
