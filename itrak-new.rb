@@ -19,6 +19,5 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-income = Income.new(inc[:name], inc[:amount], inc[:date])
-wallet.add(income)
+wallet.add(inc[:name], inc[:amount], inc[:date])
 wallet.save
