@@ -1,6 +1,6 @@
 require_relative 'lib/itrak.rb'
 
-wallet = ITrak::Wallet.new
+wallet = ITrak::Wallet.new(WALLET_STORE)
 
 # convert a float to a $US currency string
 $us = -> (flt) {
@@ -31,14 +31,15 @@ incomes.reduce(totals) do |t, i|
   t
 end
 
-name_width = incomes.map { |i| i[:name].size }.max
-amount_width = $us.call(totals[:amount]).size
-date_width = incomes.map { |i| i[:date].size }.max
-tax_width = $us.call(totals[:tax]).size
-save_width = $us.call(totals[:save]).size
-leftover_width = $us.call(totals[:leftover]).size
+name_width = incomes.map { |i| i[:name].size }.max || 5
+amount_width = $us.call(totals[:amount]).size || 5
+date_width = incomes.map { |i| i[:date].size }.max || 5
+tax_width = $us.call(totals[:tax]).size || 5
+save_width = $us.call(totals[:save]).size || 5
+leftover_width = $us.call(totals[:leftover]).size || 5
 
 # Header
+puts
 puts "Name".center(name_width) + " " + "Amount".center(amount_width) + " " + "Date".center(date_width) + " " + "Tax".center(tax_width) + " " + "Save".center(save_width) + " " + "Left".center(leftover_width)
 puts "-" * ((name_width + amount_width + date_width + tax_width + save_width + leftover_width) + 5)
 
