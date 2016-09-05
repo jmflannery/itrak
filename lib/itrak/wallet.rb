@@ -14,7 +14,8 @@ module ITrak
     end
 
     def delete(id)
-      self.data = self.data.reject { |i| i.id == id }
+      self.data = self.data.reject { |i| i.id == id.to_i }
+      self
     end
 
     def next_id
