@@ -2,8 +2,8 @@ module ITrak
   class Wallet
     include Persistable
 
-    def initialize
-      store WALLET_STORE
+    def initialize(file)
+      store file
     end
 
     def add(income)

@@ -1,7 +1,7 @@
 require_relative 'lib/itrak.rb'
 
 inc    = {}
-wallet = ITrak::Wallet.new
+wallet = ITrak::Wallet.new(WALLET_STORE)
 
 OptionParser.new do |opts|
   opts.banner = "Usage: itrak-new.rb [options]"
