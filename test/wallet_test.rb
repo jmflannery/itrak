@@ -36,5 +36,12 @@ module ITrak
       @wallet.add('second', 1, '2016-2-2')
       @wallet.data.map(&:name).must_equal(%w(first second third))
     end
+
+    it 'deletes an income by id' do
+      i = @wallet.add('first', 1, '2016-1-1')
+      @wallet.data.size.must_equal 1
+      @wallet.delete(i.id)
+      @wallet.data.must_be_empty
+    end
   end
 end

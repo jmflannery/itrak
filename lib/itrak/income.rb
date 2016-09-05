@@ -28,7 +28,7 @@ module ITrak
     end
 
     def to_s
-      "<Income name: '#{name}' amount: $#{amount.to_f} date: #{date.rfc822} income_tax: #{income_tax} savings: #{savings} leftover: #{leftover}>"
+      "<Income name: '#{name}' amount: $#{amount.to_f} date: #{date.rfc822} income_tax: #{income_tax} savings: #{savings} left_over: #{left_over}>"
     end
 
     alias_method :inspect, :to_s

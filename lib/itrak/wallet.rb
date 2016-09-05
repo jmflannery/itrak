@@ -13,6 +13,10 @@ module ITrak
       income
     end
 
+    def delete(id)
+      self.data = self.data.reject { |i| i.id == id }
+    end
+
     def next_id
       (data.map(&:id).max || 0) + 1
     end
