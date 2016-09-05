@@ -6,13 +6,14 @@ module ITrak
   describe Income do
 
     before do
-      @income = Income.new('Paycheck', 600, '2016-9-3')
+      @income = Income.new('Paycheck', 600, '2016-9-3', 22)
     end
 
     it 'initializes' do
       @income.name.must_equal 'Paycheck'
       @income.amount.must_equal BigDecimal.new(600)
       @income.date.must_equal Date.new(2016, 9, 3)
+      @income.id.must_equal 22
     end
 
     it 'know the income tax to be saved' do

@@ -6,7 +6,7 @@ module ITrak
       @store_file = file
       @key = self.class.to_s.split('::').last.downcase
       dirname = @store_file.split('/')[0...-1].join
-      FileUtils.mkdir_p(dirname) unless Dir.exist?(dirname)
+      FileUtils.mkdir_p(dirname) unless dirname.empty? || Dir.exist?(dirname)
       store = PStore.new(store_file)
 
       @data = store.transaction do |s|

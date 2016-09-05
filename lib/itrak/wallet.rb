@@ -6,10 +6,15 @@ module ITrak
       store file
     end
 
-    def add(income)
+    def add(name, amount, date)
+      income = Income.new(name, amount, date, next_id)
       data << income
       data.sort!
-      self
+      income
+    end
+
+    def next_id
+      (data.map(&:id).max || 0) + 1
     end
 
     def initial_data

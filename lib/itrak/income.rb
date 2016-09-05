@@ -2,12 +2,13 @@ module ITrak
   class Income
     include Comparable
 
-    attr_reader :name, :amount, :date
+    attr_reader :name, :amount, :date, :id
 
-    def initialize(name, amount, date)
+    def initialize(name, amount, date, id)
       @name = name
       @amount = BigDecimal(amount)
       @date = Date.parse(date)
+      @id = id
     end
 
     def income_tax
